@@ -1,4 +1,4 @@
-//package cses;
+package cses;
 import java.util.*;
 import java.math.*;
 public class trailingZeroes {
