@@ -11,6 +11,7 @@ public class bitString {
 		
 		long ans = help(2, n);
 		System.out.println(ans);
+		scan.close();
 	}
 	public static long help (long a, long b) {
 		if(b == 0) return 1L;
