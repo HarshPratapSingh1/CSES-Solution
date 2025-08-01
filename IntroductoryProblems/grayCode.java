@@ -1,4 +1,4 @@
-package cses;
+package cses.IntroductoryProblems;
 import java.util.*;
 public class grayCode {
 	public static void main(String[]args) {

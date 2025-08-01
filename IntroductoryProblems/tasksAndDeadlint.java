@@ -1,4 +1,4 @@
-package cses;
+package cses.IntroductoryProblems;
 import java.io.*;
 import java.util.*;
 public class tasksAndDeadlint {

@@ -1,4 +1,4 @@
-package cses;
+package cses.IntroductoryProblems;
 import java.math.BigInteger;
 import java.util.*;
 public class missingNumber {
