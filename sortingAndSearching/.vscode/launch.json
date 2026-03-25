@@ -1,0 +1,80 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "MissingCoinSum",
+      "request": "launch",
+      "mainClass": "MissingCoinSum",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "StickLengths",
+      "request": "launch",
+      "mainClass": "StickLengths",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "MaximumSubarraySum",
+      "request": "launch",
+      "mainClass": "MaximumSubarraySum",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "SumOfTwoValues",
+      "request": "launch",
+      "mainClass": "SumOfTwoValues",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "MovieFestival",
+      "request": "launch",
+      "mainClass": "MovieFestival",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "RestaurantCustomers",
+      "request": "launch",
+      "mainClass": "RestaurantCustomers",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "ConcertTickets",
+      "request": "launch",
+      "mainClass": "ConcertTickets",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "FerrisWheel",
+      "request": "launch",
+      "mainClass": "FerrisWheel",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "d:/JAVA/cses/src/cses/sortingAndSearching",
+      "program": "d:/JAVA/cses/src/cses/sortingAndSearching/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
