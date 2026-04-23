@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class MissingCoinSum {
+public class TrafficLights {
     static FastIO scan;
     static final int MOD = 1_000_000_007;
     static final long LINF = (long) 1e18;
@@ -19,35 +19,36 @@ public class MissingCoinSum {
     }
 
     static void solve() throws IOException {
+        int x = scan.nextInt();
         int n = scan.nextInt();
-        long arr[] = new long[n];
 
-        for (int i = 0; i < n; i++)
-            arr[i] = scan.nextLong();
+        TreeSet<Integer> posi = new TreeSet<>();
+        posi.add(0);
+        posi.add(x);
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        map.put(x, 1);
 
-        Arrays.sort(arr);
-        if (arr[0] != 1) {
-            System.out.println(1);
-            return;
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < n; i++) {
+            int val = scan.nextInt();
+            int l = posi.lower(val);
+            int r = posi.higher(val);
+            int dif = r - l;
+
+            int cnt = map.get(dif);
+            if (cnt == 1)
+                map.remove(dif);
+            else
+                map.put(dif, cnt - 1);
+
+            map.put(val - l, map.getOrDefault(val - l, 0) + 1);
+            map.put(r - val, map.getOrDefault(r - val, 0) + 1);
+
+            sb.append(map.lastKey()).append(" ");
+            posi.add(val);
         }
-        long sum = arr[0], val = -1;
-
-        for (int i = 1; i < n; i++) {
-            if (sum + 1 < arr[i]) {
-                val = sum + 1;
-                break;
-            }
-            sum += arr[i];
-        }
-        System.out.println(val == -1 ? getSum(arr) : val);
-    }
-
-    public static long getSum(long arr[]) {
-        long sum = 0;
-        for (long it : arr)
-            sum += it;
-
-        return sum + 1;
+        scan.pn(sb.toString());
     }
 
     // ---------------------- FAST I/O ----------------------

@@ -1,14 +1,14 @@
 import java.util.*;
 import java.io.*;
 
-public class MissingCoinSum {
+public class NestedRangesCheck {
     static FastIO scan;
     static final int MOD = 1_000_000_007;
     static final long LINF = (long) 1e18;
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("input.txt"));
-        System.setOut(new PrintStream("output.txt"));
+        // System.setIn(new FileInputStream("input.txt"));
+        // System.setOut(new PrintStream("output.txt"));
         scan = new FastIO();
         int t = 1;
         // t = scan.nextInt();
@@ -20,34 +20,51 @@ public class MissingCoinSum {
 
     static void solve() throws IOException {
         int n = scan.nextInt();
-        long arr[] = new long[n];
+        long arr[][] = new long[n][3];
 
-        for (int i = 0; i < n; i++)
-            arr[i] = scan.nextLong();
-
-        Arrays.sort(arr);
-        if (arr[0] != 1) {
-            System.out.println(1);
-            return;
+        for (int i = 0; i < n; i++) {
+            arr[i][0] = scan.nextLong();
+            arr[i][1] = scan.nextLong();
+            arr[i][2] = i;
         }
-        long sum = arr[0], val = -1;
 
-        for (int i = 1; i < n; i++) {
-            if (sum + 1 < arr[i]) {
-                val = sum + 1;
-                break;
+        Arrays.sort(arr, (x, y) -> {
+            if (x[0] != y[0]) {
+                return Long.compare(x[0], y[0]); // Start ascending
+            } else {
+                return Long.compare(y[1], x[1]); // End descending
             }
-            sum += arr[i];
+        });
+        long lastMax = 0;
+        int contains[] = new int[n];
+        int contained[] = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            long idx = arr[i][2];
+
+            if (arr[i][1] <= lastMax)
+                contained[(int) idx] = 1;
+            else
+                contained[(int) idx] = 0;
+            lastMax = Math.max(lastMax, arr[i][1]);
         }
-        System.out.println(val == -1 ? getSum(arr) : val);
-    }
+        long lastMin = Long.MAX_VALUE;
 
-    public static long getSum(long arr[]) {
-        long sum = 0;
-        for (long it : arr)
-            sum += it;
+        for (int i = n - 1; i >= 0; i--) {
+            long idx = arr[i][2];
 
-        return sum + 1;
+            if (arr[i][1] >= lastMin)
+                contains[(int) idx] = 1;
+            else
+                contains[(int) idx] = 0;
+            lastMin = Math.min(lastMin, arr[i][1]);
+        }
+        for (int it : contains)
+            scan.p(it + " ");
+        scan.pn(" ");
+        for (int it : contained)
+            scan.p(it + " ");
+        scan.pn(" ");
     }
 
     // ---------------------- FAST I/O ----------------------

@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class MissingCoinSum {
+public class DistinctValuesSubarrays {
     static FastIO scan;
     static final int MOD = 1_000_000_007;
     static final long LINF = (long) 1e18;
@@ -25,29 +25,48 @@ public class MissingCoinSum {
         for (int i = 0; i < n; i++)
             arr[i] = scan.nextLong();
 
-        Arrays.sort(arr);
-        if (arr[0] != 1) {
-            System.out.println(1);
-            return;
-        }
-        long sum = arr[0], val = -1;
+        HashMap<Long, Long> map = new HashMap<>();
+        ArrayList<long[]> l = new ArrayList<>();
 
-        for (int i = 1; i < n; i++) {
-            if (sum + 1 < arr[i]) {
-                val = sum + 1;
-                break;
+        long cnt = 0;
+        int i = 0, j = 0;
+        long ans[] = new long[n];
+
+        while (j < n) {
+            map.put(arr[j], map.getOrDefault(arr[j], 0l) + 1);
+            boolean flag = false;
+            while (i < j && map.getOrDefault(arr[j], 0l) > 1) {
+                if (!flag) {
+                    long dif = j - i;
+                    ans[j - 1] = dif * (dif + 1) / 2;
+                    l.add(new long[] { i, j - 1 });
+                }
+                flag = true;
+                map.put(arr[i], map.getOrDefault(arr[i], 0l) - 1);
+                if (map.get(arr[i]) == 0)
+                    map.remove(arr[i]);
+                i++;
             }
-            sum += arr[i];
+
+            j++;
         }
-        System.out.println(val == -1 ? getSum(arr) : val);
-    }
-
-    public static long getSum(long arr[]) {
+        long dif = j - i;
+        ans[j - 1] = dif * (dif + 1) / 2;
+        l.add(new long[] { i, j - 1 });
         long sum = 0;
-        for (long it : arr)
-            sum += it;
+        for (long val : ans)
+            sum += val;
 
-        return sum + 1;
+        for (i = 1; i < l.size(); i++) {
+            long end = l.get(i - 1)[1];
+            long start = l.get(i)[0];
+            if (end >= start) {
+                dif = end - start + 1;
+                cnt = dif * (dif + 1) / 2;
+                sum -= cnt;
+            }
+        }
+        System.out.println(sum);
     }
 
     // ---------------------- FAST I/O ----------------------

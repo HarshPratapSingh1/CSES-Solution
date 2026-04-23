@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class MissingCoinSum {
+public class DistinctValuesSubsequences {
     static FastIO scan;
     static final int MOD = 1_000_000_007;
     static final long LINF = (long) 1e18;
@@ -20,34 +20,23 @@ public class MissingCoinSum {
 
     static void solve() throws IOException {
         int n = scan.nextInt();
-        long arr[] = new long[n];
 
+        long arr[] = new long[n];
         for (int i = 0; i < n; i++)
             arr[i] = scan.nextLong();
 
-        Arrays.sort(arr);
-        if (arr[0] != 1) {
-            System.out.println(1);
-            return;
-        }
-        long sum = arr[0], val = -1;
+        long ans = 1;
 
-        for (int i = 1; i < n; i++) {
-            if (sum + 1 < arr[i]) {
-                val = sum + 1;
-                break;
-            }
-            sum += arr[i];
-        }
-        System.out.println(val == -1 ? getSum(arr) : val);
-    }
+        HashMap<Long, Long> map = new HashMap<>();
 
-    public static long getSum(long arr[]) {
-        long sum = 0;
         for (long it : arr)
-            sum += it;
+            map.put(it, map.getOrDefault(it, 0l) + 1);
 
-        return sum + 1;
+        for (Map.Entry<Long, Long> m : map.entrySet()) {
+            long val = m.getValue();
+            ans = (ans * (val + 1)) % MOD;
+        }
+        System.out.println(ans - 1);
     }
 
     // ---------------------- FAST I/O ----------------------

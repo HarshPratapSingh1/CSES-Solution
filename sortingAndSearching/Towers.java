@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class MissingCoinSum {
+public class Towers {
     static FastIO scan;
     static final int MOD = 1_000_000_007;
     static final long LINF = (long) 1e18;
@@ -25,29 +25,39 @@ public class MissingCoinSum {
         for (int i = 0; i < n; i++)
             arr[i] = scan.nextLong();
 
-        Arrays.sort(arr);
-        if (arr[0] != 1) {
-            System.out.println(1);
-            return;
-        }
-        long sum = arr[0], val = -1;
+        ArrayList<Long> l = new ArrayList<>();
 
-        for (int i = 1; i < n; i++) {
-            if (sum + 1 < arr[i]) {
-                val = sum + 1;
-                break;
+        for (int i = 0; i < n; i++) {
+            if (l.isEmpty() || l.get(l.size() - 1) <= arr[i])
+                l.add(arr[i]);
+            else {
+                int idx = bs(l, arr[i]);
+                if (idx > -1) {
+                    l.set(idx, arr[i]);
+                }
             }
-            sum += arr[i];
         }
-        System.out.println(val == -1 ? getSum(arr) : val);
+        scan.pn(l.size());
     }
 
-    public static long getSum(long arr[]) {
-        long sum = 0;
-        for (long it : arr)
-            sum += it;
+    public static int bs(ArrayList<Long> li, long val) {
+        int l = 0, r = li.size() - 1;
+        int ans = -1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (check(mid, li, val) == 1) {
+                ans = mid;
+                r = mid - 1;
+            } else
+                l = mid + 1;
+        }
+        return ans;
+    }
 
-        return sum + 1;
+    public static int check(int mid, ArrayList<Long> l, long val) {
+        if (l.get(mid) > val)
+            return 1;
+        return 0;
     }
 
     // ---------------------- FAST I/O ----------------------

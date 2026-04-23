@@ -3,58 +3,86 @@
   "configurations": [
     {
       "type": "java",
+      "name": "NestedRangesCheck",
+      "request": "launch",
+      "mainClass": "NestedRangesCheck",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "DistinctValuesSubsequences",
+      "request": "launch",
+      "mainClass": "DistinctValuesSubsequences",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "JosephusProblemII",
+      "request": "launch",
+      "mainClass": "JosephusProblemII",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "JosephusProblemI",
+      "request": "launch",
+      "mainClass": "JosephusProblemI",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "DistinctValuesSubarrays",
+      "request": "launch",
+      "mainClass": "DistinctValuesSubarrays",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "TrafficLights",
+      "request": "launch",
+      "mainClass": "TrafficLights",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "Towers",
+      "request": "launch",
+      "mainClass": "Towers",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "Playlist",
+      "request": "launch",
+      "mainClass": "Playlist",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "CollectingNumbersII",
+      "request": "launch",
+      "mainClass": "CollectingNumbersII",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "CollectingNumbers_II",
+      "request": "launch",
+      "mainClass": "CollectingNumbers_II",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "CollectingNumbers",
+      "request": "launch",
+      "mainClass": "CollectingNumbers",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
       "name": "MissingCoinSum",
       "request": "launch",
       "mainClass": "MissingCoinSum",
-      "projectName": "sortingAndSearching_134c9a7e"
-    },
-    {
-      "type": "java",
-      "name": "StickLengths",
-      "request": "launch",
-      "mainClass": "StickLengths",
-      "projectName": "sortingAndSearching_134c9a7e"
-    },
-    {
-      "type": "java",
-      "name": "MaximumSubarraySum",
-      "request": "launch",
-      "mainClass": "MaximumSubarraySum",
-      "projectName": "sortingAndSearching_134c9a7e"
-    },
-    {
-      "type": "java",
-      "name": "SumOfTwoValues",
-      "request": "launch",
-      "mainClass": "SumOfTwoValues",
-      "projectName": "sortingAndSearching_134c9a7e"
-    },
-    {
-      "type": "java",
-      "name": "MovieFestival",
-      "request": "launch",
-      "mainClass": "MovieFestival",
-      "projectName": "sortingAndSearching_134c9a7e"
-    },
-    {
-      "type": "java",
-      "name": "RestaurantCustomers",
-      "request": "launch",
-      "mainClass": "RestaurantCustomers",
-      "projectName": "sortingAndSearching_134c9a7e"
-    },
-    {
-      "type": "java",
-      "name": "ConcertTickets",
-      "request": "launch",
-      "mainClass": "ConcertTickets",
-      "projectName": "sortingAndSearching_134c9a7e"
-    },
-    {
-      "type": "java",
-      "name": "FerrisWheel",
-      "request": "launch",
-      "mainClass": "FerrisWheel",
       "projectName": "sortingAndSearching_134c9a7e"
     },
     {

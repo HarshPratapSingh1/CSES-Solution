@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class MissingCoinSum {
+public class Playlist {
     static FastIO scan;
     static final int MOD = 1_000_000_007;
     static final long LINF = (long) 1e18;
@@ -25,29 +25,24 @@ public class MissingCoinSum {
         for (int i = 0; i < n; i++)
             arr[i] = scan.nextLong();
 
-        Arrays.sort(arr);
-        if (arr[0] != 1) {
-            System.out.println(1);
-            return;
-        }
-        long sum = arr[0], val = -1;
+        HashMap<Long, Integer> map = new HashMap<>();
 
-        for (int i = 1; i < n; i++) {
-            if (sum + 1 < arr[i]) {
-                val = sum + 1;
-                break;
+        int i = 0, j = 0;
+        long ans = 1;
+
+        while (j < n) {
+            // System.out.println(map);
+            map.put(arr[j], map.getOrDefault(arr[j], 0) + 1);
+            while (i < j && map.get(arr[j]) > 1) {
+                map.put(arr[i], map.getOrDefault(arr[i], 0) - 1);
+                if (map.get(arr[i]) == 0)
+                    map.remove(arr[i]);
+                i++;
             }
-            sum += arr[i];
+            ans = Math.max(ans, map.size());
+            j++;
         }
-        System.out.println(val == -1 ? getSum(arr) : val);
-    }
-
-    public static long getSum(long arr[]) {
-        long sum = 0;
-        for (long it : arr)
-            sum += it;
-
-        return sum + 1;
+        scan.pn(ans);
     }
 
     // ---------------------- FAST I/O ----------------------

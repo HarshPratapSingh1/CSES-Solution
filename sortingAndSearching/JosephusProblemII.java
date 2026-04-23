@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class MissingCoinSum {
+public class JosephusProblemII {
     static FastIO scan;
     static final int MOD = 1_000_000_007;
     static final long LINF = (long) 1e18;
@@ -20,34 +20,42 @@ public class MissingCoinSum {
 
     static void solve() throws IOException {
         int n = scan.nextInt();
-        long arr[] = new long[n];
 
-        for (int i = 0; i < n; i++)
-            arr[i] = scan.nextLong();
+        long x = scan.nextLong();
 
-        Arrays.sort(arr);
-        if (arr[0] != 1) {
-            System.out.println(1);
-            return;
+        int lIdx[] = new int[n];
+        int rIdx[] = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            lIdx[i] = (i + 1) % n;
+            rIdx[i] = i - 1;
         }
-        long sum = arr[0], val = -1;
+        rIdx[0] = n - 1;
 
-        for (int i = 1; i < n; i++) {
-            if (sum + 1 < arr[i]) {
-                val = sum + 1;
+        // x %= n;
+
+        int i = (int) x;
+        int cnt = 0;
+        while (true) {
+            int prev = rIdx[i];
+            int front = lIdx[i];
+
+            System.out.print((i + 1) + " ");
+            if (prev == front && front == i)
                 break;
+            rIdx[front] = prev;
+            lIdx[prev] = front;
+            cnt++;
+            if (cnt == n)
+                break;
+
+            long dif = x % (n - cnt);
+            while (dif-- >= 0) {
+                i = front;
+                front = lIdx[i];
             }
-            sum += arr[i];
         }
-        System.out.println(val == -1 ? getSum(arr) : val);
-    }
-
-    public static long getSum(long arr[]) {
-        long sum = 0;
-        for (long it : arr)
-            sum += it;
-
-        return sum + 1;
+        System.out.println();
     }
 
     // ---------------------- FAST I/O ----------------------

@@ -1,14 +1,14 @@
 import java.util.*;
 import java.io.*;
 
-public class MissingCoinSum {
+public class CollectingNumbersII {
     static FastIO scan;
     static final int MOD = 1_000_000_007;
     static final long LINF = (long) 1e18;
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("input.txt"));
-        System.setOut(new PrintStream("output.txt"));
+        // System.setIn(new FileInputStream("input.txt"));
+        // System.setOut(new PrintStream("output.txt"));
         scan = new FastIO();
         int t = 1;
         // t = scan.nextInt();
@@ -20,34 +20,73 @@ public class MissingCoinSum {
 
     static void solve() throws IOException {
         int n = scan.nextInt();
+        int m = scan.nextInt();
+
         long arr[] = new long[n];
+        long location[] = new long[n];
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             arr[i] = scan.nextLong();
-
-        Arrays.sort(arr);
-        if (arr[0] != 1) {
-            System.out.println(1);
-            return;
+            location[(int) arr[i] - 1] = i;
         }
-        long sum = arr[0], val = -1;
 
-        for (int i = 1; i < n; i++) {
-            if (sum + 1 < arr[i]) {
-                val = sum + 1;
-                break;
+        long ans = 0;
+
+        for (int i = 0; i < n - 1; i++)
+            if (location[i] > location[i + 1])
+                ans++;
+
+        while (m-- > 0) {
+            int l = scan.nextInt() - 1;
+            int r = scan.nextInt() - 1;
+            long ele1 = arr[l] - 1;
+            long ele2 = arr[r] - 1;
+            if (ele1 == ele2) {
+                scan.pn(ans + 1);
+                continue;
             }
-            sum += arr[i];
+            long iniVal = change(location, (int) ele1, (int) ele2);
+            swap(location, (int) ele1, (int) ele2);
+            swap(arr, (int) l, (int) r);
+
+            long finalVal = change(location, (int) ele1, (int) ele2);
+            long ch = finalVal - iniVal;
+
+            ans += ch;
+
+            scan.pn(ans + 1);
+
         }
-        System.out.println(val == -1 ? getSum(arr) : val);
     }
 
-    public static long getSum(long arr[]) {
-        long sum = 0;
-        for (long it : arr)
-            sum += it;
+    public static long change(long arr[], int idx, int jdx) {
+        long ch = 0;
+        int min = Math.min(idx, jdx);
+        int max = Math.max(jdx, idx);
 
-        return sum + 1;
+        if (min + 1 == max) {
+            if (min > 0 && arr[min] < arr[min - 1])
+                ch++;
+            if (max < arr.length - 1 && arr[max] > arr[max + 1])
+                ch++;
+            if (arr[min] > arr[max])
+                ch++;
+        } else {
+            if (min > 0 && arr[min] < arr[min - 1])
+                ch++;
+            if (min < arr.length - 1 && arr[min] > arr[min + 1])
+                ch++;
+            if (max > 0 && arr[max] < arr[max - 1])
+                ch++;
+            if (max < arr.length - 1 && arr[max] > arr[max + 1])
+                ch++;
+
+        }
+        return ch;
+    }
+
+    public static void swap(long arr[], int i, int j) {
+        arr[i] = arr[i] ^ arr[j] ^ (arr[j] = arr[i]);
     }
 
     // ---------------------- FAST I/O ----------------------
