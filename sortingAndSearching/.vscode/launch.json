@@ -3,6 +3,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "NearestSmallerValues",
+      "request": "launch",
+      "mainClass": "NearestSmallerValues",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "SumOfFourValues",
+      "request": "launch",
+      "mainClass": "SumOfFourValues",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "SumOfThreeValue",
+      "request": "launch",
+      "mainClass": "SumOfThreeValue",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "RoomAllocation",
+      "request": "launch",
+      "mainClass": "RoomAllocation",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "NestedRangesCount",
+      "request": "launch",
+      "mainClass": "NestedRangesCount",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
       "name": "NestedRangesCheck",
       "request": "launch",
       "mainClass": "NestedRangesCheck",
