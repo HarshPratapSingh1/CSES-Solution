@@ -1,14 +1,14 @@
 import java.util.*;
 import java.io.*;
 
-public class SubarraySums1 {
+public class SubarraySums1and2 {
     static FastIO scan;
     static final int MOD = 1_000_000_007;
     static final long LINF = (long) 1e18;
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("input.txt"));
-        System.setOut(new PrintStream("output.txt"));
+        // System.setIn(new FileInputStream("input.txt"));
+        // System.setOut(new PrintStream("output.txt"));
         scan = new FastIO();
         int t = 1;
         // t = scan.nextInt();
@@ -26,7 +26,19 @@ public class SubarraySums1 {
         for (int i = 0; i < n; i++)
             arr[i] = scan.nextLong();
 
-        // HashMap<
+        HashMap<Long, Integer> map = new HashMap<>();
+        map.put(0L, 1);
+        long sum = 0, ans = 0;
+
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+            if (map.containsKey(sum - x)) {
+                int cnt = map.get(sum - x);
+                ans += cnt;
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        System.out.println(ans);
     }
 
     // ---------------------- FAST I/O ----------------------

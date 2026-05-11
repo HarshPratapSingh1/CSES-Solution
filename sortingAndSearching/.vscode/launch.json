@@ -3,6 +3,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MaximumSubarraySum2",
+      "request": "launch",
+      "mainClass": "MaximumSubarraySum2",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "MovieFestival2",
+      "request": "launch",
+      "mainClass": "MovieFestival2",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "DistinctValuesSubarrays2",
+      "request": "launch",
+      "mainClass": "DistinctValuesSubarrays2",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "SubarrayDivisibility",
+      "request": "launch",
+      "mainClass": "SubarrayDivisibility",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
+      "name": "SubarraySums1",
+      "request": "launch",
+      "mainClass": "SubarraySums1",
+      "projectName": "sortingAndSearching_134c9a7e"
+    },
+    {
+      "type": "java",
       "name": "NearestSmallerValues",
       "request": "launch",
       "mainClass": "NearestSmallerValues",
