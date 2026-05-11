@@ -44,7 +44,6 @@ public class MaximumSubarraySum2 {
 
         int i = 0;
         while (i < len) {
-            String s1 = i + " " + prefix[i];
             set.add(i);
 
             long start = prefix[i + a];
