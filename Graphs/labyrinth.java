@@ -1,4 +1,3 @@
-package cses.Graphs;
 import java.util.*;
 public class labyrinth {
 	static int dir [][] = {{1 , 0} , {-1 , 0} , {0 , -1} , {0 , 1}};

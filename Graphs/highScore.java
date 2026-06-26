@@ -1,5 +1,3 @@
-package cses.Graphs;
-
 import java.util.*;
 import java.io.*;
 
