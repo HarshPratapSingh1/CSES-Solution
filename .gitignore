@@ -1,5 +1,3 @@
 /.metadata/
-/.Graph/input.txt
-/.Graph/output.txt
-/.dynamic programming/input.txt
-/.dynamic programming/output.txt
+**/input.txt
+**/output.txt
