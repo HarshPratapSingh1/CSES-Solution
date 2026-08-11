@@ -7,11 +7,11 @@ public class JosephusQueries {
     static final long LINF = (long) 1e18;
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("input.txt"));
-        System.setOut(new PrintStream("output.txt"));
+        // System.setIn(new FileInputStream("input.txt"));
+        // System.setOut(new PrintStream("output.txt"));
         scan = new FastIO();
         int t = 1;
-        t = scan.nextInt();
+        // t = scan.nextInt();
         while (t-- > 0) {
             solve();
         }
@@ -19,10 +19,31 @@ public class JosephusQueries {
     }
 
     static void solve() throws IOException {
-        long n = scan.nextLong();
-        long q = scan.nextLong();
+        int q = scan.nextInt();
 
-        
+        while (q-- > 0) {
+            int n = scan.nextInt();
+            int k = scan.nextInt();
+
+            System.out.println(find(n, k));
+        }
+    }
+
+    public static int find(int n, int k) {
+        if (n == 1)
+            return 1;
+
+        if (k <= (n + 1) / 2) {
+            if (2 * k > n)
+                return 2 * k % n;
+            return 2 * k;
+        }
+
+        int cur = find(n / 2, k - (n + 1) / 2);
+
+        if (n % 2 != 0)
+            return cur * 2 + 1;
+        return cur * 2 - 1;
     }
 
     // ---------------------- FAST I/O ----------------------
